@@ -1,0 +1,37 @@
+/*   Manifest Documents
+  dublin core
+
+  Types:
+  IRI - for IRI values - allows for validity checking
+  TITLE - non-unique Titles of a document
+  FILEKEY - unique or non-unique file keys to the document
+
+*/
+
+
+
+{
+  "ObjectId": "id from store",   // Default MongoDB _id: unique whithin the store
+  "iri": "IRI to this document", // Type IRI
+  "store": "iri of store" ,        // Type IRI
+  "Header" : {
+    "title": "Document Title",     // Type TITLE
+    "fileKeys": [],               // array of FILEKEY
+    "revision": 0,                  // Revision counter - increased by every safe
+    "status": {
+      "code": 0      ,        // additiver status of document: 0=AVAILALBE, 1=IN_EDIT_MODE, 2=DELETED, 4=FINAL, 8=ARCHIVED
+      "editingUsers": []      // array of User document iris
+    },
+
+    "Archive": {                     // Archive of Document
+      "rules": "IRI of archive rules ", // Type IRI - Rules for the Archive behavior
+      "store": ""                 // IRI to store - default ist document.store
+    }
+
+  },
+  "Body" : {
+  },
+
+  "footer" : {
+  }
+}
